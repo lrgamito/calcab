@@ -3,20 +3,21 @@ import math
 #Function that calculate
 def calculate(maiorDH, menorDH, subidaCabo, descidaCabo, sobraTele, sobraATrab, numPontos, margemSeg, precoMetro, mtCaixa):
     
-    totalMetros = (((( maiorDH + menorDH) / 2) + subidaCabo + descidaCabo + sobraTele + sobraATrab ) * numPontos)
-    totalMetros = totalMetros + (totalMetros * margemSeg / 100)
+    totalMetros = ((( float(maiorDH) + float(menorDH) / 2) + float(subidaCabo) + float(descidaCabo) + float(sobraTele) + float(sobraATrab) ) * int(numPontos))
+    totalMetros = totalMetros + (totalMetros * float(margemSeg) / 100)
     
     print(totalMetros)
     
-    if mtCaixa > 0:
-        totalCaixas = math.ceil(totalMetros / mtCaixa)
+    if float(mtCaixa) > 0:
+        totalCaixas = math.ceil( totalMetros / float(mtCaixa) )
     
         print(totalCaixas)
     
-    if precoMetro > 0:
-        totalValor = totalMetros * precoMetro
+    if float(precoMetro) > 0:
+        totalValor = totalMetros * float(precoMetro)
     
         print(totalValor)
     
-    return True
+    ret = totalMetros + "\n" + totalCaixas + "\n" + totalValor + "\n"
     
+    return ret
